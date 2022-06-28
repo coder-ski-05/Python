@@ -1,0 +1,26 @@
+#Tip Calculator
+
+suggestion = 'Y'
+
+while suggestion == 'Y':
+
+    total_bill = float(input("\nWhat is your total bill? \n"))
+    tip_15 = float(total_bill) * 0.15
+    tip_15 = round(tip_15, 2)
+
+    tip_20 = float(total_bill) * 0.2
+    tip_20 = round(tip_20, 2)
+
+    total_with_15 = (total_bill) + (tip_15)
+    total_with_15 = round(total_with_15, 2)
+
+    total_with_20 = (total_bill) + (tip_20)
+    total_with_20 = round(total_with_20, 2)
+
+    message = f"\nYour suggested 15% tip is ${tip_15} for a total of ${total_with_15}\n\n"
+    messageTwo = f"Your suggested 20% tip is ${tip_20} for a total of ${total_with_20}\n\n"
+
+
+    print(message,
+          messageTwo)
+    suggestion = input('Would you like another tip suggestion? (Y/N) \n')

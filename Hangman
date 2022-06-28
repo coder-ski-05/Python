@@ -1,0 +1,77 @@
+
+
+import random
+
+random_list = random.randint(1, 15)
+# list the hangman body parts
+hangman_pics = [
+    """
+   +---+
+         |
+         |
+         |
+        ===""",
+    """
+     +---+
+     O  |
+        |
+        |
+       ===""",
+    """
+    +---+
+    O   |
+    |   |
+        |
+       ===""",
+    """
+    +---+
+    O   |
+   /|   |
+        |
+       ===""",
+    """
+    +---+
+    O   |
+   /|\  |
+        |
+      ===""",
+    """
+   +---+
+    O   |
+   /|\  |
+   /    |
+       ===""",
+    """
+   +---+
+    O   |
+   /|\  |
+   / \  |
+       ==="""
+]
+
+# declare variables
+wrong_guess = 0
+guessed_number = int(input("Guess Your Number:   "))
+
+# use while looping for number guessing
+while wrong_guess <= len(hangman_pics):
+    if guessed_number < 1 or guessed_number > 15:
+        print(f"You can only guess between 1 and 15", '\n Try again\n')
+        guessed_number = int(input("Guess Your Number:   "))
+    elif guessed_number == random_list:
+        print("Congradulations! Your correctly guessed your number!")
+        break
+
+    else:
+        print(hangman_pics[wrong_guess])
+        wrong_guess +=1
+        guessed_number = int(input("Guess Your Number:   "))
+
+        if wrong_guess == len(hangman_pics):
+            print("It is sad! You can't guess your number out of 7 trials in rows. Please follow the next instruction.")
+            # game over decision
+            replay = input('Do you want to replay?  ')
+            if replay.upper() in ('YES', 'Y'):
+                wrong_guess = 0
+            else:
+                 pass

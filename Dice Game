@@ -1,0 +1,69 @@
+#Dice Game
+
+import random
+import time
+
+roll_again = "yes"
+
+while roll_again == "yes" or roll_again == "y" or roll_again == "Y":
+    print("\nRolling the dice...\n")
+    time.sleep(1)
+
+    dice1 = random.randint(1, 6)
+    dice2 = random.randint(1, 6)
+    diceResult = dice1 + dice2
+
+    if diceResult == 2:
+        print(diceResult, "\n Snake eyes!")
+
+    elif diceResult == 3:
+        print(diceResult, "\n Ace Caught a Deuce!")
+
+    elif dice1 == 2 and dice2 == 2:
+        print(dice1, ', ', dice2)
+        print("\n Little Joe from Kokomo")
+
+    elif diceResult == 5:
+        print(diceResult, "\n Little Phoebe!")
+
+    elif dice1 == 3 and dice2 == 3:
+        print(dice1, ', ', dice2)
+        print("\n Jimmy Hicks from the Sticks")
+
+    elif dice1 == 6 and dice2 == 1:
+        print(dice1, ', ', dice2)
+        print("\n Six Ace")
+
+    elif dice1 == 1 and dice2 == 6:
+        print(dice1, ', ', dice2)
+        print("\n Six Ace")
+
+    elif dice1 == 4 and dice2 == 4:
+        print(dice1, ', ', dice2)
+        print("\n Eighter from Decatur")
+
+    elif diceResult == 9:
+        print(diceResult, "\n Nina from Pasadena!")
+
+    elif dice1 == 5 and dice2 == 5:
+        print(dice1, ', ', dice2)
+        print("\n Puppy Paws!")
+
+    elif dice1 == 5 and dice2 == 6:
+        print(dice1, ', ', dice2)
+        print("\n Six Five no Jive!")
+
+    elif dice1 == 6 and dice2 == 5:
+        print(dice1, ', ', dice2)
+        print("\n Six Five no Jive!")
+
+    elif diceResult == 12:
+        print(diceResult, "\n  Boxcars!")
+
+    else:
+        print("\nThe values are: ")
+        print("\nDice 1 =", dice1,
+              "\nDice 2 =", dice2)
+        print("\nDice total value", diceResult)
+
+    roll_again = input("\nRoll the dice again? (Y/N) ")

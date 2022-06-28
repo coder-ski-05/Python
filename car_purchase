@@ -1,0 +1,45 @@
+#Car_Dealership
+
+suggestion = 'Y'
+tax_ohio = 0.65
+license_ohio = 0.05
+dealer_prep = 15
+destination = 20
+title = 33
+
+header_footer = ('**************************************************\n')
+line_seperator = ('--------------------------------------------------\n')
+dealership_name = "\nbig bob's car dealership\n"
+dealership_address = '''550 east spring street \n\t\tcolumbus, OH  43215\n'''
+
+question = 'Would you like to know another expected invoice? (Y/N) \n'
+
+
+while suggestion == 'Y':
+
+    base_price = float(input("\nWhat is your estimated base price? \n"))
+    
+    tax_fees = float(base_price) * tax_ohio
+    tax_fees = round(tax_fees, 2)
+
+    license_fees = float(base_price) * license_ohio
+    license_fees = round(license_fees, 2)
+
+    extra_fees = tax_fees + title + license_fees + dealer_prep + destination
+    
+    
+    total_cost = base_price + extra_fees
+    total_cost = round(total_cost, 2)
+
+
+    message = f"\n{header_footer}\t{dealership_name.title()}\t{dealership_address.title()}\n{line_seperator}"
+    
+    messageTwo = f"\n\tTax ${tax_fees}\n \tTitle ${title}\n \tLicense ${license_fees}\n \tDealer Prep ${dealer_prep}\n \tDestination ${destination}\n"
+
+    messageThree = f"\n{line_seperator}\n\n \tTotal Cost ${total_cost}\n\n{line_seperator}\n\tThank you for Choosing Big Bob\n\n{header_footer}"
+
+
+    print(message,
+          messageTwo,
+          messageThree)
+    suggestion = input(f"{question}")

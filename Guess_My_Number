@@ -1,0 +1,28 @@
+#Guess_My_Number
+
+import random
+
+play = 'Y'
+
+
+while play in ('Y', 'y'):
+    random_num = random.randint(1, 100)
+    num_guess = input('\nGuess my number between 1 and 100: ')
+    num_guess = int(num_guess)
+
+    while num_guess != random_num:
+
+
+        if num_guess > random_num:
+            print("\nYou guess is too high! ")
+            num_guess = input('\nGuess my number: ')
+            num_guess = int(num_guess)
+
+        elif num_guess < random_num:
+            print("\nYou guess is too low! ")
+            num_guess = input('\nGuess my number: ')
+            num_guess = int(num_guess)
+
+        
+    print('\nYou guessed the number correct')
+    play = input('\nDo you wish to play again? (y/n) ')

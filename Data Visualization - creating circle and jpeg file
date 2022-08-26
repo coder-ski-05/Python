@@ -1,0 +1,39 @@
+import matplotlib.pyplot as plt
+import numpy as np
+import math
+ 
+
+
+class drawCircle():
+
+    def circle(self, radius=1.0, xAxis=8, yAxis=8, fileName=''):
+
+        R=radius
+        x=xAxis
+        y=yAxis
+        max_theta = 2 * np.pi
+        list_t = list(np.arange(0.0, max_theta, 0.0001))
+        x_circle = [(R * math.cos(x_y)) for x_y in list_t]
+        y_circle = [(R * math.sin(x_y)) for x_y in list_t]
+        #Plot
+        plt.style.use('seaborn')
+        fig = plt.figure()
+        fig.set_size_inches(x, y)
+        ax = fig.add_axes([0.15,0.2,0.7,0.7]) 
+        ax.plot(x_circle, y_circle, linestyle = 'solid', color = 'black')
+
+
+
+        plt.show()
+        if fileName != '':
+            fig.savefig(fileName)
+            plt.clf()
+
+
+if __name__ == '__main__':
+    figure = drawCircle()
+    figure.circle()
+    figure.circle(radius=2)
+    figure.circle(radius=3, xAxis=4, yAxis=4)
+    figure.circle(radius=3, xAxis=4, yAxis=8)
+    figure.circle(radius=3, xAxis=4, yAxis=4, fileName='plotty.jpg')

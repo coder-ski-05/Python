@@ -1,0 +1,34 @@
+import sqlite3
+
+connection = sqlite3.connect('tutorial.db')
+cursor = connection.cursor()
+
+
+# tutorial.db is a database that does not exist. If SQLite attempts to connect
+# to a non-existant DB, then it creates a DB
+
+def create_table():
+    cursor.execute('create table gta(datestamp TEXT, keyword TEXT, value REAL)')
+
+
+def data_entry():
+    cursor.execute("insert into gta values('2016-01-01', 'Python', 5)")
+    connection.commit()
+
+
+
+#create_table()
+data_entry()
+
+
+for row in cursor.execute("select * from gta"):
+    print(row)
+cursor.close()
+connection.close()
+
+
+
+# stuffToPlot passes through columns and data types of those columns
+# REAL means its a python float for a real number
+# c.close closes out cursor
+# conn.close() essential to stop memory from being used

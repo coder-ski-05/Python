@@ -1,0 +1,39 @@
+import random
+import sqlite3
+import time
+import datetime
+
+
+connection = sqlite3.connect('tutorial.db')
+cursor = connection.cursor()
+
+
+def create_table():
+    cursor.execute('create table gta(datestamp TEXT, keyword TEXT, value REAL)')
+
+
+def data_entry():
+    cursor.execute("insert into gta values('2016-01-01', 'Python', 5)")
+    connection.commit()
+    cursor.close()
+    connection.close()
+
+def dynamic_data_entry():
+    unix = time.time()
+    date = str(datetime.datetime.fromtimestamp(unix).strftime('%Y-%m-%d %H:%M:%S'))
+    keyword = 'Python'
+    value = random.randrange(0,10)
+    cursor.execute("insert into gta (datestamp, keyword, value) values(?, ?, ?)",
+                   (date, keyword, value))
+    connection.commit()
+
+dynamic_data_entry()
+#create_table()
+#data_entry()
+
+for i in range(10):
+    dynamic_data_entry()
+    time.sleep(1)
+    print(i)
+cursor.close()
+connection.close()

@@ -1,0 +1,20 @@
+import socket
+
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+# AF stands for Address family. AF_INET = ipv4; AF_INET6 = ipv6; AF_UNIT = PC on unix; AF_BLUETOOTH = Bluetooth family
+
+s.connect((socket.gethostname(), 1234))
+
+# 1234 is used for a local reference here
+
+full_msg = ''
+while True:
+    msg = s.recv(8)
+    if len(msg) <= 0:
+        break
+    full_msg += msg.decode("utf-8")
+
+print(full_msg)
+
+# the while loop keeps the client listening

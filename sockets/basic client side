@@ -18,3 +18,4 @@ while True:
 print(full_msg)
 
 # the while loop keeps the client listening
+# s.recv(8) represents a buffer size of 8

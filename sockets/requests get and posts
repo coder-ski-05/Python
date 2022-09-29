@@ -1,0 +1,17 @@
+import requests
+
+
+payload = {'page': 2, 'count': 25}
+r = requests.get('https://httpbin.org/get', params=payload)
+
+# httpbin.org allows the ability to test different methods
+
+print(r.url)
+
+print(r.text)
+
+payloadPost = {'username': 'bill', 'password': 'testing'}
+rPost = requests.post('https://httpbin.org/get', data=payload)
+
+print(rPost.text)
+

@@ -1,0 +1,14 @@
+import requests
+
+r = requests.get('https://hire-bill-ski.w3spaces.com/images/Zodiac_ox.jpg')
+
+# print(r)
+
+# print(r.text)
+
+# with open('bill.jpg', 'wb') as f:
+    # f.write(r.content)
+
+# this method will create an image into the current file directory from a website image URL
+
+# print(r.headers)
